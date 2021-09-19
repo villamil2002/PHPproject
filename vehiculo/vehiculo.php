@@ -30,11 +30,20 @@
                         <label>Color </label>
                         <input type="text" name="color" class="form-control">
                         <label>Cliente </label>
-                        <input type="text" name="idCliente" class="form-control">
+                        <select type="text" name="idCliente" class="form-control">
+                          <option hidden selected value="">--Seleccione Orden Parte--</option>
+                          <?php
+                            $queryOrdenparte = "SELECT * FROM cliente order by Numero_Documento asc";
+                            $resultado_Ordenparte= mysqli_query($conn, $queryOrdenparte);
+                            foreach ($resultado_Ordenparte as $valores):
+                                echo '<option value="'.$valores["Id_cliente"].'">'.$valores["Numero_Documento"].'</option>';
+                            endforeach;
+                           ?>
+                        </select>
 
           </div>
           <input type="submit" name="guardar" class="btn btn-success btn-block" value="Guardar">
-          
+
         </form>
       </div>
     </div>
@@ -53,7 +62,7 @@
         <tbody>
 
           <?php
-          $query = "SELECT * FROM vehiculo";
+          $query = "SELECT v.*, c.Numero_Documento FROM vehiculo v inner join cliente c on v.id_Cliente = c.Id_cliente";
           $resultado_vehiculo = mysqli_query($conn, $query);
 
           while($row = mysqli_fetch_assoc($resultado_vehiculo)) { ?>
@@ -62,7 +71,7 @@
             <td><?php echo $row['Matricula']; ?></td>
             <td><?php echo $row['Modelo']; ?></td>
             <td><?php echo $row['Color']; ?></td>
-            <td><?php echo $row['id_Cliente']; ?></td>
+            <td><?php echo $row['Numero_Documento']; ?></td>
             <td>
               <a href="editar.php?id=<?php echo $row['id_vehiculo']?>" class="btn btn-secondary">
                 <i class="fas fa-marker"></i>

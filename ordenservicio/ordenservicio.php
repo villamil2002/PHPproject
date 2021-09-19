@@ -35,7 +35,7 @@
                                 echo '<option value="'.$valores["Id_cliente"].'">'.$valores["Nombre1"]. ' ' .$valores["Apellido1"].'</option>';
                             endforeach;
                            ?>
-                        </select> 
+                        </select>
                         <label>Vehiculo </label>
                         <select type="text" name="vehiculo" class="form-control">
                           <option value="">--Seleccione un Vehiculo--</option>
@@ -51,10 +51,13 @@
                         <select type="text" name="ordenparte" class="form-control">
                           <option value="">--Seleccione Orden Parte--</option>
                           <?php
-                            $queryOrdenparte = "SELECT * FROM ordenparte";
+                            $queryOrdenparte = "select o.*,r.descripcion,concat(m.Nombre1,' ',m.Apellido1) nombre_mecanico
+                                                FROM ordenparte o
+                                                inner join  repuesto r on o.Id_Repuesto = r.Id_Repuesto
+                                                inner join mecanico m on o.Id_mecanico = m.Id_Mecanico order by o.Id_OrdenParte asc";
                             $resultado_Ordenparte= mysqli_query($conn, $queryOrdenparte);
                             foreach ($resultado_Ordenparte as $valores):
-                                echo '<option value="'.$valores["Id_OrdenParte"].'">'.$valores["Id_OrdenParte"].'</option>';
+                                echo '<option value="'.$valores["Id_OrdenParte"].'">'.'ID Orden: '.$valores["Id_OrdenParte"].'- Cantidad: '.$valores["Cantidad"].'- Repuesto: '.$valores["descripcion"].'- Mecanico: '.$valores["nombre_mecanico"].'</option>';
                             endforeach;
                            ?>
                         </select>
@@ -67,39 +70,31 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-          <th>ID</th>
-            <th>Fecha</th>
-            <th>Cliente</th>
-            <th>Vehiculo</th>
-            <th>Orden Parte</th>
+          <th>ID Servicio</th>
+            <th>Fecha Registro</th>
+            <th>Matricula vehículo</th>
+            <th>ID Orden Parte</th>
           </tr>
         </thead>
         <tbody>
 
           <?php
-          $query = "select os.Id_servicio,os.Id_ordenParte,os.Fecha_registro,v.Matricula,
-          m.Numero_Documento,m.Nombre1,m.Apellido1,
-          r.Descripcion,r.Cantidad,r.Precio_unitario,
-          c.Numero_Documento,c.Nombre1,c.Apellido1,c.Direccion
+          $query = "select os.Id_servicio, os.Fecha_registro,v.Matricula,op.Id_OrdenParte
           from ordenparte op
-          inner join  mecanico m on op.Id_mecanico = m.Id_Mecanico 
+          inner join  mecanico m on op.Id_mecanico = m.Id_Mecanico
           inner join repuesto r on op.Id_Repuesto = r.Id_Repuesto
           inner join ordenservicio os on os.Id_ordenParte = op.Id_OrdenParte
           inner join vehiculo v on os.id_vehiculo = v.id_vehiculo
           inner join cliente c on v.id_Cliente = c.Id_cliente";
-          $query= "WHERE os.Id_servicio =: idServicio";
-          $resultado_ordenservicio= mysqli_query($conn, $query);
-          $resultado_ordenservicio->bindValue("idServicio","1");
-          $resultado_ordenservicio->execute();
+
+          $resultado_ordenservicio = $conn->query($query);
 
           while($row = mysqli_fetch_assoc($resultado_ordenservicio)) { ?>
           <tr>
             <td><?php echo $row['Id_servicio']; ?></td>
             <td><?php echo $row['Fecha_registro']; ?></td>
-            <td><?php echo $row['Nombre_Cliente']; ?></td>
-            <td><?php echo $row['Matricula'];?></td>
-            <td><?php echo $row['Id_OrdenParte']; ?></td>
-
+            <td><?php echo $row['Matricula']; ?></td>
+            <td><?php echo $row['Id_OrdenParte'];?></td>
             <td>
               <a href="editar.php?id=<?php echo $row['Id_servicio']?>" class="btn btn-secondary">
                 <i class="fas fa-marker"></i>

@@ -2,7 +2,7 @@
 <?php
 // Initialize the session
 session_start();
- 
+
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
@@ -120,13 +120,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="factura/factura.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Factura</span></a><br>
-            
+
             </li>
         </ul>
-     
+
 
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -151,7 +151,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
 
-                     
+
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
@@ -184,4 +184,3 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     </ul>
 
                 </nav>
-            

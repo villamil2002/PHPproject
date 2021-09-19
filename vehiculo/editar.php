@@ -28,7 +28,7 @@
 
 
 
-        $query = "UPDATE vehiculo SET Matricula = '$numeroMatricula', Modelo = '$modelo',Color = '$color',id_Cliente ='$idcliente' WHERE id_vehiculo = $id";
+        $query = "UPDATE vehiculo SET Matricula = '$numeroMatricula', Modelo = '$modelo',Color = '$color',id_Cliente ='$idCliente' WHERE id_vehiculo = $id";
 
         $resultado = $conn->query($query);
         header('Location: vehiculo.php');
@@ -63,8 +63,22 @@
                                 <label>Color </label>
                                 <input type="text" name="color" class="form-control" value="<?php echo $color; ?>" placeholder="Actualizar Color">
                                 <label>Cliente </label>
-                                <input type="text" name="idCliente" class="form-control" value="<?php echo $idcliente; ?>" placeholder="Actualizar Cliente"><br>
-
+                                <select type="text" name="idCliente" class="form-control">
+                                  <?php
+                                    $queryOrdenparte = "SELECT * FROM cliente where Id_cliente = '$idcliente' order by Numero_Documento asc";
+                                    $resultado_Ordenparte= mysqli_query($conn, $queryOrdenparte);
+                                    foreach ($resultado_Ordenparte as $valores):
+                                        echo '<option value="'.$valores["Id_cliente"].'">'.$valores["Numero_Documento"].'</option>';
+                                    endforeach;
+                                   ?>
+                                  <?php
+                                    $queryOrdenparte = "SELECT * FROM cliente order by Numero_Documento asc";
+                                    $resultado_Ordenparte= mysqli_query($conn, $queryOrdenparte);
+                                    foreach ($resultado_Ordenparte as $valores):
+                                        echo '<option value="'.$valores["Id_cliente"].'">'.$valores["Numero_Documento"].'</option>';
+                                    endforeach;
+                                   ?>
+                                </select>
                             </div>
                             <button class="btn btn-success  btn-block " name="actualizar">
                                 Actualizar

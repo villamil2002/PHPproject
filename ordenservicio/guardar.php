@@ -4,28 +4,20 @@
     if(isset($_POST['guardar'])){
 
 
-        $idOrdenServicio=$_POST['Id_servicio'];
         $fecha=$_POST['fecha'];
         $cliente=$_POST['cliente'];
         $vehiculo=$_POST['vehiculo'];
         $ordenparte=$_POST['ordenparte'];
 
-        echo $fecha;
-        echo $cliente;
-        echo $vehiculo;
-        echo $ordenparte;
-        echo $idOrdenServicio;
-        
+        $query="INSERT INTO ordenservicio (Fecha_registro,id_vehiculo,Id_OrdenParte) VALUES (now(),'$vehiculo','$ordenparte')";
+        $resultadoauto= mysqli_query($conn,$query);
 
-        $query="SELECT ordenservicio (Fecha_registro,Id_cliente,id_vehiculo,Id_OrdenParte)"; //VALUES ('$fecha','$cliente','$vehiculo','$ordenparte')
-        $resultadoservicio= mysqli_query($conn,$query);
-
-        if(!$resultadoservicio){
+        if(!$resultadoauto){
             die("Falla");
 
         }
         $_SESSION['message']= 'Informacion guardada';
-        $_SESSION['message_type']= 'warning';
+        $_SESSION['message_type']= 'success';
         header("Location: ordenservicio.php");
     }
 ?>

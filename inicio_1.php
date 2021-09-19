@@ -9,8 +9,14 @@
 
 <title>VENSTORE</title>
 </head>
-<body style="background: url(img/menu.jpg);">
+<body>
+<center>
+<h1>INFORMACION GENERAL</h1>
+</center>
 <!--MenuSuperior-->
+<div class="container">
+<img src="img/menu.jpg" class="img-thumbnail"style="margin: 5px" >
+</div>
 
 <div class="wrapper">
   <div class="tabs">

@@ -77,7 +77,7 @@
                                 <label>Telefono </label>
                                 <input type="number" name="telefono" class="form-control" value="<?php echo $telefono; ?>" placeholder="Actualizar telefono"><br>
                             </div>
-                            <button class="btn btn-success" name="actualizar">
+                            <button class="btn btn-success btn-block" name="actualizar">
                                 Actualizar
                              </button>
                     </form>

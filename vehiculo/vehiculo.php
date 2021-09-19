@@ -11,8 +11,7 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
             <a href="vehiculo.php" class="navbar-brand">INFORMACION VEHICULO</a>
-            <a style="margin-left: 740px" role="button" href="../inicio_1.php" class="btn btn-success btn-sm">Salir</a>
-            <a type="button" href="vehiculo.php" class="btn btn-secondary btn-sm">Cancelar</a>
+            <a role="button" href="../inicio_1.php" class="btn btn-success btn-sm">Salir</a>
         </div>
     </nav>
 <?php include("../conexion.php"); ?>

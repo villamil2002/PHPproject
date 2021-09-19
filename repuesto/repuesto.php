@@ -10,9 +10,8 @@
 <body>
 <nav class="navbar navbar-dark bg-dark">
         <div class="container">
-            <a href="repuesto.php" class="navbar-brand">INFORMACION VEHICULO</a>
-            <a style="margin-left: 740px" role="button" href="../inicio_1.php" class="btn btn-success btn-sm">Salir</a>
-            <a type="button" href="repuesto.php" class="btn btn-secondary btn-sm">Cancelar</a>
+            <a href="repuesto.php" class="navbar-brand">INFORMACION REPUESTO</a>
+            <a role="button" href="../inicio_1.php" class="btn btn-success btn-sm">Salir</a>
         </div>
     </nav>
 <?php include("../conexion.php"); ?>
@@ -22,7 +21,6 @@
     <div class="col-md-4">
 
       <div class="card card-body">
-      <session>INFORMACION REPUESTO</session>
         <form action="guardar.php" method="POST">
           <div class="form-group">
                         <label>Descripcion</label>

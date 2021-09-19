@@ -2,9 +2,8 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Open Sans";
-  background: url(img/menu.jpg);
   color: #ecf0f1;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
 }
 .wrapper {
   max-width: 42.6em;
@@ -75,5 +74,8 @@ body {
   z-index: 2;
   opacity: 1;
   transition: all 0.35s;
+}
+h1{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 

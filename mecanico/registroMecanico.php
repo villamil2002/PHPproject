@@ -11,15 +11,14 @@
 <nav class="navbar navbar-dark bg-dark">
         <div class="container">
             <a href="registroMecanico.php" class="navbar-brand">REGISTRO DE MECANICO</a>
-            <a style="margin-left: 740px" role="button" href="../inicio_1.php" class="btn btn-success btn-sm">Salir</a>
-            <a type="button" href="registroMecanico.php" class="btn btn-secondary btn-sm">Cancelar</a>
+            <a role="button" href="../inicio_1.php" class="btn btn-success btn-sm">Salir</a>
         </div>
     </nav>
 <?php include '../conexion.php';?>
 
 <div class="container p-4">
     <div class="row">
-        <div class="col-md-4">
+        
 <!--Mensaje-->
     <?php if (isset($_SESSION['message'])) { ?>
       <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
@@ -32,38 +31,51 @@
 
 
             <div class="card card-body">
-                <form action="guardar.php" method="POST">
-                <session>INFORMACION MECANICO</session>
-                    <div class ="form-group">
+                <form action="guardar.php" method="POST" class="row g-3">
+                <div class="col-md-6">
+                            <label for="numeroIdentificacion" class="form-label">N° Indentificacion</label>
+                            <input type="number" class="form-control" id="numeroIdentificacion" name="numeroIdentificacion">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="tipoDocumento" class="form-label">Tipo de documento</label>
+                            <input type="text" name="tipoDocumento" class="form-control" id="tipoDocumento">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nombre1" class="form-label">Primer Nombre</label>
+                            <input type="text" name="nombre1" class="form-control" id="nombre1">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nombre2" class="form-label">Segundo Nombre</label>
+                            <input type="text" name="nombre2" class="form-control" id="nombre2" >
+                        </div>
+                        <div class="col-md-6">
+                            <label for="apellido1" class="form-label">Primer Apellido</label>
+                            <input type="text" name="apellido1" class="form-control" id="apellido1">
+                        </div>
+                    
+                        <div class="col-md-6">
+                            <label for="apellido2" class="form-label">Segundo Apellido</label>
+                            <input type="text"  name="apellido2" class="form-control" id="apellido2">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="direccion" class="form-label">Direccion</label>
+                            <input type="text"  name="direccion" class="form-control" id="direccion">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="telefono" class="form-label">Telefono</label>
+                            <input type="text"  name="telefono" class="form-control" id="telefono">
+                        </div></br>
 
-                        <label>N° Indentificacion</label>
-                        <input type="number" name="numeroIdentificacion" class="form-control">
-                        <label>Tipo de documento </label>
-                        <input type="text" name="tipoDocumento" class="form-control">
-                        <label>Primer Nombre </label>
-                        <input type="text" name="nombre1" class="form-control">
-                        <label>Segundo Nombre </label>
-                        <input type="text" name="nombre2" class="form-control">
-                        <label>Primer Apellido </label>
-                        <input type="text" name="apellido1" class="form-control">
-                        <label>Segundo Apellido </label>
-                        <input type="text" name="apellido2" class="form-control">
-                        <label>Direccion </label>
-                        <input type="text" name="direccion" class="form-control">
-                        <label>Telefono </label>
-                        <input type="number" name="telefono" class="form-control"><br>
-
-                    </div>
-                    <center>
-                        <input type="submit" class="btn btn-success" value="Guardar" name="guardar">
-                     </center>
+                       <div class="col-12"></br> <center>
+                            <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
+                        </div></center>
                 </form>
             </div>
         </div>
         
         <div class="col-md-8">
             <table class="table table-striped table-hover">
-                <thead>
+                <thead><br>
                     <tr>
                         <th>ID</th>
                         <th>Numero Indentificacion</th>

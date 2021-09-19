@@ -66,7 +66,7 @@
                                 <input type="text" name="idCliente" class="form-control" value="<?php echo $idcliente; ?>" placeholder="Actualizar Cliente"><br>
 
                             </div>
-                            <button class="btn btn-success" name="actualizar">
+                            <button class="btn btn-success  btn-block " name="actualizar">
                                 Actualizar
                              </button>
                     </form>

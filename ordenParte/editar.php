@@ -33,7 +33,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <title>Informacion repuesto</title>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -41,7 +40,7 @@
 <body>
 <nav class="navbar navbar-dark bg-dark">
         <div class="container">
-            <a href="editar.php" class="navbar-brand"> EDITAR REPUESTO </a>
+            <a href="editar.php" class="navbar-brand"> EDITAR ORDEN PARTE</a>
         </div>
 </nav>
     <div class="container p-4">
@@ -80,7 +79,7 @@
                                 <br>
 
                             </div>
-                            <button class="btn btn-success" name="actualizar">
+                            <button class="btn btn-success btn-block" name="actualizar">
                                 Actualizar
                              </button>
                     </form>

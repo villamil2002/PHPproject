@@ -9,7 +9,7 @@
         $color=$_POST['color'];
         $idCliente=$_POST['idCliente'];
 
-        $query="INSERT INTO vehiculo (Matricula,Modelo,color,id_Cliente) VALUES ('$matricula','$modelo','$color','$idCliente')";
+        $query="INSERT INTO vehiculo (Matricula,Modelo,Color,id_Cliente) VALUES ('$matricula','$modelo','$color','$idCliente')";
         $resultadoauto= mysqli_query($conn,$query);
 
         if(!$resultadoauto){
